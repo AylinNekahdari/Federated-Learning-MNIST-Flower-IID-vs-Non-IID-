@@ -1,0 +1,4 @@
+data/
+fl_results.png
+mnist_flower_app.egg-info/
+__pycache__/
