@@ -4,19 +4,13 @@ from torch.utils.data import Dataset, DataLoader
 
 BATCH_SIZE = 32
 
-import numpy as np
-from torchvision import datasets, transforms
-from torch.utils.data import Dataset, DataLoader
-
-BATCH_SIZE = 32
-
 def mnist_iid(dataset, num_users):
     num_items = len(dataset) // num_users
     all_indices = np.random.permutation(len(dataset))
     user_groups = {i: set(all_indices[i*num_items:(i+1)*num_items]) for i in range(num_users)}
     return user_groups
 
-# Your existing non-IID functions
+
 def mnist_noniid(dataset, num_users, test=False):
     # Train: 200 shards * 300 images = 60,000
     # Test: 20 shards * 500 images = 10,000
@@ -36,7 +30,7 @@ def mnist_noniid(dataset, num_users, test=False):
 
     for i in range(num_users):
         np.random.seed(i)
-        # FIX: Replace the hardcoded '2' with 'shards_per_user'
+        
         if len(classes_indx) < shards_per_user:
             chosen = classes_indx
         else:
