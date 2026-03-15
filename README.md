@@ -1,5 +1,5 @@
 
-<h1>Federated Learning on MNIST with IID and Non-IID Partitioning</h1>
+<h1>Federated Learning with IID and Non-IID Partitioning</h1>
 
 <p>
 This project implements a federated learning simulation using the
